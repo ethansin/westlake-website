@@ -1,0 +1,41 @@
+/*
+ * Design tokens — the single place to adjust the site's look.
+ * Components reference these variables rather than hard-coded values.
+ */
+:root {
+  /* Brand blues: lighter and cleaner than the workqueue navy (#1e3a5f) */
+  --color-brand: #2e6fb7;        /* hero panel, primary accents */
+  --color-brand-strong: #1f5a9e; /* hover / pressed states */
+  --color-brand-soft: #e7f0fa;   /* tinted backgrounds, badges */
+  --color-accent: #6cc3e8;       /* active indicators, highlights */
+
+  /* Neutrals */
+  --color-ink: #0f2a44;          /* primary text */
+  --color-ink-muted: #4f6884;    /* secondary text */
+  --color-line: #d9e4f0;         /* hairline borders on light surfaces */
+  --color-surface: #f4f8fc;      /* page background */
+  --color-white: #ffffff;
+
+  /* Glass surfaces */
+  --glass-bg: rgba(255, 255, 255, 0.68);
+  --glass-bg-strong: rgba(255, 255, 255, 0.86);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --glass-blur: blur(18px) saturate(160%);
+  --glass-shadow: 0 10px 34px rgba(15, 42, 68, 0.12), 0 1px 2px rgba(15, 42, 68, 0.06);
+
+  /* Typography */
+  --font-display: "Manrope", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Shape & spacing */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+  --nav-height: 72px;
+  --gutter: clamp(16px, 4vw, 48px);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 160ms;
+}

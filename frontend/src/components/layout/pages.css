@@ -1,0 +1,104 @@
+.page-shell {
+  min-height: 100svh;
+  padding: calc(var(--nav-height) + 56px) var(--gutter) 96px;
+  background:
+    radial-gradient(900px 480px at 85% -10%, rgba(108, 195, 232, 0.22), transparent 70%),
+    radial-gradient(700px 420px at -10% 20%, rgba(46, 111, 183, 0.12), transparent 70%),
+    var(--color-surface);
+}
+
+.page-shell__inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: var(--color-ink-muted);
+  margin-bottom: 18px;
+}
+
+.breadcrumb a {
+  color: var(--color-ink-muted);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: var(--color-brand);
+}
+
+.page-shell__title {
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.page-shell__lead {
+  margin-top: 12px;
+  max-width: 40rem;
+  font-size: 1.1rem;
+  color: var(--color-ink-muted);
+}
+
+.card-grid {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  border-radius: var(--radius-lg);
+  padding: 8px;
+  transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(15, 42, 68, 0.14);
+}
+
+.card .nav-item {
+  height: 100%;
+  padding: 16px;
+}
+
+.placeholder-card {
+  margin-top: 40px;
+  max-width: 560px;
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.placeholder-card__note {
+  font-size: 14px;
+  color: var(--color-ink-muted);
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-brand-soft);
+  color: var(--color-brand-strong);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.text-link {
+  color: var(--color-brand);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}

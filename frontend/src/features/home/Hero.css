@@ -1,0 +1,110 @@
+.hero {
+  --hero-panel: var(--color-brand);
+  --hero-fade: clamp(96px, 14vw, 240px); /* how far the panel's color bleeds over the image */
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+.hero__media {
+  background-size: cover;
+  background-position: center;
+}
+
+.hero__panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--hero-panel);
+  color: var(--color-white);
+  padding: calc(var(--nav-height) + 48px) var(--gutter) 64px;
+}
+
+/* Gradient border: the panel's color fades out across the image */
+.hero__panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  width: var(--hero-fade);
+  background: linear-gradient(
+    to left,
+    var(--hero-panel) 0%,
+    color-mix(in srgb, var(--hero-panel) 85%, transparent) 25%,
+    color-mix(in srgb, var(--hero-panel) 40%, transparent) 65%,
+    color-mix(in srgb, var(--hero-panel) 0%, transparent) 100%
+  );
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  max-width: 34rem;
+  text-align: left;
+}
+
+.hero__eyebrow {
+  display: inline-block;
+  margin-bottom: 22px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.hero__title {
+  font-size: clamp(2.25rem, 4.4vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.hero__subtitle {
+  margin-top: 22px;
+  max-width: 30rem;
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+/* Stack on narrow screens: image on top, fade runs vertically */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: 48svh auto;
+  }
+
+  .hero__media {
+    background-position: center top;
+  }
+
+  .hero__panel {
+    padding: 40px var(--gutter) 56px;
+    align-items: flex-start;
+  }
+
+  .hero__panel::before {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    width: auto;
+    height: clamp(120px, 18svh, 180px);
+    background: linear-gradient(
+      to top,
+      var(--hero-panel) 0%,
+      color-mix(in srgb, var(--hero-panel) 85%, transparent) 25%,
+      color-mix(in srgb, var(--hero-panel) 40%, transparent) 65%,
+      color-mix(in srgb, var(--hero-panel) 0%, transparent) 100%
+    );
+  }
+}
