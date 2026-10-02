@@ -28,3 +28,6 @@ dist-ssr
 .env.local
 .env.*.local
 .firebase/
+
+# Original full-size hero photo (site uses the optimized hero-building.jpg)
+src/assets/westlakemedical.png

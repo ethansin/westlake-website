@@ -34,6 +34,20 @@ westlake-website/
    `PlaceholderPage`.
 4. To ship a real page: build it under `features/<area>/`, then register it
    in `app/pages.ts` keyed by its path.
+5. To hide a page for now without losing it, set `archived: true` on its
+   item. It disappears from the menus, overview pages, and routes. Currently
+   archived: Patient Registration, Forms & Agreements, Billing & Insurance.
+
+Follow `docs/DESIGN.md` for all visual work.
+
+## Policies & disclosures
+
+`/info/policies` lists the entries in `config/policies.ts`. Each policy will
+get a plain-text document page at `/info/policies/<slug>` (the "Document /
+prose page" pattern in DESIGN.md). Until then it's listed as "Coming soon";
+set `published: true` once its page exists. The SMS policies matter for
+carrier (A2P 10DLC) registration, which typically requires public links to
+the SMS privacy policy and terms.
 
 ## Planned features (not implemented)
 

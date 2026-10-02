@@ -1,6 +1,7 @@
 .hero {
   --hero-panel: var(--color-brand);
   --hero-fade: clamp(96px, 14vw, 240px); /* how far the panel's color bleeds over the image */
+  --hero-fade-stacked: clamp(120px, 18svh, 180px); /* same, vertically, on narrow screens */
 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -8,9 +9,42 @@
   overflow: hidden;
 }
 
+/*
+ * Focal-point cropping. The photo covers the media box like
+ * `object-fit: cover`, but positioned so a chosen point of the photo
+ * (--focus-*) lands at a chosen point of the box (--target-*): the middle of
+ * the area left visible between the nav bar and the panel's fade.
+ *
+ * --bleed-* oversizes the photo just enough that shifting it off-center
+ * never exposes an edge.
+ */
 .hero__media {
-  background-size: cover;
-  background-position: center;
+  position: relative;
+  overflow: hidden;
+  container-type: size;
+
+  /* The building sign, as a fraction of the photo */
+  --focus-x: 51.3%;
+  --focus-y: 50.3%;
+  --photo-aspect: 1.3281; /* 4080 / 3072 */
+
+  --target-x: calc(50% - var(--hero-fade) / 4);
+  --target-y: calc(50% + var(--nav-height) / 2);
+  --bleed-x: calc(var(--hero-fade) * 0.55 + 4cqw);
+  --bleed-y: calc(var(--nav-height) + 2cqh);
+}
+
+.hero__photo {
+  position: absolute;
+  left: var(--target-x);
+  top: var(--target-y);
+  width: max(
+    calc(100cqw + var(--bleed-x)),
+    calc((100cqh + var(--bleed-y)) * var(--photo-aspect))
+  );
+  max-width: none;
+  height: auto;
+  transform: translate(calc(-1 * var(--focus-x)), calc(-1 * var(--focus-y)));
 }
 
 .hero__panel {
@@ -84,7 +118,10 @@
   }
 
   .hero__media {
-    background-position: center top;
+    --target-x: 50%;
+    --target-y: calc(50% + var(--nav-height) / 2 - var(--hero-fade-stacked) / 4);
+    --bleed-x: 6cqw;
+    --bleed-y: calc(var(--nav-height) + var(--hero-fade-stacked) / 2 + 2cqh);
   }
 
   .hero__panel {
@@ -98,7 +135,7 @@
     right: 0;
     bottom: 100%;
     width: auto;
-    height: clamp(120px, 18svh, 180px);
+    height: var(--hero-fade-stacked);
     background: linear-gradient(
       to top,
       var(--hero-panel) 0%,

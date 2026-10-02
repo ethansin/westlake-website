@@ -5,6 +5,10 @@
  * Adding a page = adding an item here (and, once it's built, registering its
  * component in src/app/pages.ts). Until then the item routes to a
  * "Coming soon" placeholder.
+ *
+ * Archiving: set `archived: true` on an item to pull it from the menus,
+ * overview pages, and routes while keeping its definition for later.
+ * Delete the flag to restore it.
  */
 
 /**
@@ -23,6 +27,8 @@ export interface NavItem {
   description?: string;
   access: Access;
   external?: boolean;
+  /** Hidden everywhere (menus, overview pages, routes) until un-archived. */
+  archived?: boolean;
 }
 
 export interface NavSection {
@@ -34,7 +40,7 @@ export interface NavSection {
   items: NavItem[];
 }
 
-export const navSections: NavSection[] = [
+const allNavSections: NavSection[] = [
   {
     id: "patients",
     label: "Patients",
@@ -43,12 +49,14 @@ export const navSections: NavSection[] = [
     items: [
       {
         label: "New Patient Registration",
+        archived: true,
         path: "/patients/registration",
         description: "Register and tell us about your sleep history.",
         access: "public",
       },
       {
         label: "Forms & Agreements",
+        archived: true,
         path: "/patients/forms",
         description: "Review and e-sign your intake documents.",
         access: "patient",
@@ -61,6 +69,7 @@ export const navSections: NavSection[] = [
       },
       {
         label: "Billing & Insurance",
+        archived: true,
         path: "/patients/billing",
         description: "Coverage, payments, and common questions.",
         access: "public",
@@ -150,6 +159,12 @@ export const navSections: NavSection[] = [
         access: "public",
       },
       {
+        label: "Policies & Disclosures",
+        path: "/info/policies",
+        description: "SMS privacy policy, terms, and other legal notices.",
+        access: "public",
+      },
+      {
         label: "Contact",
         path: "/info/contact",
         description: "Phone, fax, and general inquiries.",
@@ -158,3 +173,9 @@ export const navSections: NavSection[] = [
     ],
   },
 ];
+
+/** Live navigation: every section with archived items removed. */
+export const navSections: NavSection[] = allNavSections.map((section) => ({
+  ...section,
+  items: section.items.filter((item) => !item.archived),
+}));

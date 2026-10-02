@@ -1,11 +1,11 @@
 import type { ComponentType } from "react";
+import { PoliciesPage } from "../features/info/PoliciesPage";
 
 /**
  * Real page components, keyed by nav path. Any path from
  * config/navigation.ts that isn't listed here renders a "Coming soon"
  * placeholder.
- *
- * When a page is built, register it here, e.g.:
- *   "/providers/referral": ReferralPage,
  */
-export const pages: Partial<Record<string, ComponentType>> = {};
+export const pages: Partial<Record<string, ComponentType>> = {
+  "/info/policies": PoliciesPage,
+};
