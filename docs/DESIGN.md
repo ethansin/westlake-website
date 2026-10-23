@@ -174,25 +174,24 @@ without a `to` renders as an unlinked row with a "Coming soon" badge. Use a
 list instead of cards when the items are things to scan or read rather than
 destinations to browse.
 
-### Planned — spec for upcoming pages
+### Document pages
 
-These don't exist yet. Build them to this spec when first needed, then move
-them to the table above.
+**`DocumentPage`** (`components/layout/DocumentPage.tsx`) is for policies, terms,
+and other plain text:
 
-**Document / prose page** (for policies, terms, and other plain text)
-
-- `PageShell` with the document title as the `h1`. Breadcrumb shows its parent
-  index page.
+- `PageShell` with the document title as the `h1`. The breadcrumb shows its
+  parent index page.
 - Optional muted "Last updated: …" line under the title (14px).
-- Body inside a single `.glass` panel (`--radius-lg`, padding 28–40px,
-  ~24px on mobile), text constrained to `max-width: 68ch`.
-- Plain text styling via a `.prose` class: 16px Inter, `line-height: 1.7`,
-  `--color-ink`; paragraphs 1em apart; `h2` 1.25rem / 700 with 2em space
-  above; lists indented with 0.4em between items; links styled like
-  `.text-link` but underlined.
+- Body inside a single `.glass` panel (`--radius-lg`, padding 24–40px), text
+  constrained to `max-width: 68ch`.
+- Content is Markdown, rendered into a `.prose` block: 16px Inter,
+  `line-height: 1.7`; paragraphs 1em apart; `h2` 1.25rem / 700 with 2em space
+  above; lists indented with brand-blue markers and 0.4em between items;
+  underlined brand-blue links.
 - No images, cards, or decorative elements. Readability first.
-
----
+- Policy text lives in `src/content/policies/*.md` and is listed in
+  `config/policies.ts`. Headings in the Markdown start at `##`, since the
+  page provides the `h1`.
 
 ## 6. Iconography
 

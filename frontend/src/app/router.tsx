@@ -5,6 +5,7 @@ import { PlaceholderPage } from "../components/layout/PlaceholderPage";
 import { SectionPage } from "../components/layout/SectionPage";
 import { navSections } from "../config/navigation";
 import { HomePage } from "../features/home/HomePage";
+import { PolicyDocumentPage } from "../features/info/PolicyDocumentPage";
 import { AppLayout } from "./AppLayout";
 import { pages } from "./pages";
 
@@ -26,6 +27,12 @@ const sectionRoutes: RouteObject[] = navSections.flatMap((section) => [
 export const router = createBrowserRouter([
   {
     element: <AppLayout />,
-    children: [{ path: "/", element: <HomePage /> }, ...sectionRoutes, { path: "*", element: <NotFoundPage /> }],
+    children: [
+      { path: "/", element: <HomePage /> },
+      ...sectionRoutes,
+      // Unlisted pages (reached from other pages rather than the nav)
+      { path: "/info/policies/:slug", element: <PolicyDocumentPage /> },
+      { path: "*", element: <NotFoundPage /> },
+    ],
   },
 ]);

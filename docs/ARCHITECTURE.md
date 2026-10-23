@@ -46,10 +46,12 @@ Follow `docs/DESIGN.md` for all visual work.
 
 ## Policies & disclosures
 
-`/info/policies` lists the entries in `config/policies.ts`. Each policy will
-get a plain-text document page at `/info/policies/<slug>` (the "Document /
-prose page" pattern in DESIGN.md). Until then it's listed as "Coming soon";
-set `published: true` once its page exists. The SMS policies matter for
+`/info/policies` lists the entries in `config/policies.ts`. A policy with
+`content` (a Markdown file in `src/content/policies/`) gets a document page
+at `/info/policies/<slug>` (see "Document pages" in DESIGN.md). One without
+content is listed as "Coming soon". Published so far: Privacy Policy, Terms &
+Conditions. Notice of Privacy Practices and Nondiscrimination & Language
+Assistance are drafted as entries but `archived: true` (hidden). The SMS policies matter for
 carrier (A2P 10DLC) registration, which typically requires public links to
 the SMS privacy policy and terms.
 

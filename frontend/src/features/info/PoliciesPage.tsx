@@ -14,7 +14,7 @@ export function PoliciesPage() {
         items={policies.map((p) => ({
           label: p.title,
           description: p.description,
-          to: p.published ? policyPath(p.slug) : undefined,
+          to: p.content ? policyPath(p.slug) : undefined,
         }))}
       />
     </PageShell>

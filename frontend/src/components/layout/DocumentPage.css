@@ -1,0 +1,65 @@
+.document__updated {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--color-ink-muted);
+}
+
+.document {
+  margin-top: 32px;
+  max-width: 880px;
+  padding: clamp(24px, 4vw, 40px);
+  border-radius: var(--radius-lg);
+}
+
+/* ---------- Long-form text ---------- */
+.prose {
+  max-width: 68ch;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-ink);
+}
+
+.prose > * + * {
+  margin-top: 1em;
+}
+
+.prose h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 2em;
+}
+
+.prose h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-top: 1.5em;
+}
+
+.prose ul,
+.prose ol {
+  margin-bottom: 0;
+  padding-left: 1.4em;
+}
+
+.prose li + li {
+  margin-top: 0.4em;
+}
+
+.prose li::marker {
+  color: var(--color-brand);
+}
+
+.prose a {
+  color: var(--color-brand);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose a:hover {
+  color: var(--color-brand-strong);
+}
+
+.prose strong {
+  font-weight: 600;
+}

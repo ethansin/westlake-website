@@ -168,7 +168,7 @@ const allNavSections: NavSection[] = [
       {
         label: "Policies & Disclosures",
         path: "/info/policies",
-        description: "SMS privacy policy, terms, and other legal notices.",
+        description: "Privacy policy, terms, and other legal notices.",
         access: "public",
       },
       {

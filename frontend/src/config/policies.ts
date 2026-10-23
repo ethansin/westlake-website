@@ -1,39 +1,60 @@
+import privacy from "../content/policies/privacy.md?raw";
+import terms from "../content/policies/terms.md?raw";
+
 /**
  * Legal policies and disclosures listed on /info/policies.
  *
- * Each policy will get its own plain-text document page at
- * /info/policies/<slug> (see "Document / prose page" in docs/DESIGN.md).
- * Until that page exists, leave `published` off and the policy is listed
- * as "Coming soon" without a link.
+ * Each published policy is a plain-text document page at
+ * /info/policies/<slug>, rendered from a Markdown file in
+ * src/content/policies/. A policy without `content` is listed as
+ * "Coming soon" with no link.
+ *
+ * Set `archived: true` to hide a policy from the list (and its page) while
+ * keeping its entry for later.
+ *
+ * When you edit a policy's text, update its `lastUpdated` date too.
  */
 export interface Policy {
   slug: string;
   title: string;
   description: string;
-  published?: boolean;
+  /** Markdown body. The page supplies the title, so start headings at `##`. */
+  content?: string;
+  /** Shown as "Last updated: …" under the title. */
+  lastUpdated?: string;
+  archived?: boolean;
 }
 
-export const policies: Policy[] = [
+const allPolicies: Policy[] = [
   {
-    slug: "sms-privacy",
-    title: "SMS Privacy Policy",
-    description: "How we handle your information when we text you.",
+    slug: "privacy",
+    title: "Privacy Policy",
+    description: "How we collect, use, and protect your information, including text messages.",
+    content: privacy,
+    lastUpdated: "October 23, 2026",
   },
   {
     slug: "terms",
     title: "Terms & Conditions",
     description: "Terms for using our website and text messaging service.",
+    content: terms,
+    lastUpdated: "October 23, 2026",
   },
   {
     slug: "notice-of-privacy-practices",
+    archived: true,
     title: "Notice of Privacy Practices",
     description: "How your health information may be used and your rights under HIPAA.",
   },
   {
     slug: "nondiscrimination",
+    archived: true,
     title: "Nondiscrimination & Language Assistance",
     description: "Our nondiscrimination policy and free language services.",
   },
 ];
+
+/** Policies shown on the site: archived entries removed. */
+export const policies: Policy[] = allPolicies.filter((p) => !p.archived);
 
 export const policyPath = (slug: string) => `/info/policies/${slug}`;
