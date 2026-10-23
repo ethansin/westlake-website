@@ -35,8 +35,12 @@ westlake-website/
 4. To ship a real page: build it under `features/<area>/`, then register it
    in `app/pages.ts` keyed by its path.
 5. To hide a page for now without losing it, set `archived: true` on its
-   item. It disappears from the menus, overview pages, and routes. Currently
-   archived: Patient Registration, Forms & Agreements, Billing & Insurance.
+   item, or on a whole section to hide an entire dropdown. It disappears from
+   the menus, overview pages, and routes. Currently archived for the first
+   live build:
+   - Sections: Providers, Employees
+   - Patients: Registration, Forms & Agreements, Billing & Insurance
+   - Information: About Us, Services, Locations & Hours
 
 Follow `docs/DESIGN.md` for all visual work.
 

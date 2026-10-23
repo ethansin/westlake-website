@@ -148,6 +148,24 @@ Rules:
 | `.placeholder-card` | `pages.css` | "Coming soon" content |
 | `LinkList` | `components/layout/LinkList.tsx` | Lists of documents to scan (e.g. `/info/policies`). See below |
 
+| Content blocks | `components/layout/content.css` | Informational pages (e.g. `/patients/home-sleep-study`). See below |
+
+**Content blocks** (import `content.css` in the page):
+- `.content-stack`: vertical column (max 880px, 24px gaps) holding a page's sections.
+- `.content-section` + `.glass`: one panel per topic, with an `h2`. Optional
+  `.eyebrow` label above the `h2` for context ("Before your appointment").
+- `.section-heading`: an `h2` that sits outside a panel, above a group of cards.
+- `.steps`: three numbered glass cards for a short process. Stacks on mobile.
+- `.checklist`: items with a brand-blue check-circle icon, for "what to bring" lists.
+- `.numbered-list`: small tinted number badges, for directions or ordered instructions.
+- `.callout`: tinted box with a brand-blue left edge, for tips and side notes.
+- `.split`: two columns inside a panel. Stacks below 900px.
+- `.detail-list`: a `<dl>` of label/value rows (uppercase muted label, value
+  beside it, hairline dividers). Stacks below 900px. Used on Contact.
+- `.video-embed`: 16:9 rounded frame. Use `youtube-nocookie.com` embeds and
+  include a plain "Watch on YouTube" link as a fallback.
+- Clinic address and phone number come from `config/clinic.ts`. Never retype them.
+
 **`LinkList` details.** One `.glass` panel, max 720px wide, with full-width
 rows divided by `--color-line` hairlines. Each row shows a label
 (Inter 600), an optional muted one-line description, and a chevron that

@@ -6,9 +6,9 @@
  * component in src/app/pages.ts). Until then the item routes to a
  * "Coming soon" placeholder.
  *
- * Archiving: set `archived: true` on an item to pull it from the menus,
- * overview pages, and routes while keeping its definition for later.
- * Delete the flag to restore it.
+ * Archiving: set `archived: true` on an item, or on a whole section, to pull
+ * it from the menus, overview pages, and routes while keeping its definition
+ * for later. Delete the flag to restore it.
  */
 
 /**
@@ -38,6 +38,8 @@ export interface NavSection {
   /** Short blurb shown at the top of the section overview page. */
   summary: string;
   items: NavItem[];
+  /** Hides the whole dropdown, its overview page, and all its routes. */
+  archived?: boolean;
 }
 
 const allNavSections: NavSection[] = [
@@ -62,9 +64,9 @@ const allNavSections: NavSection[] = [
         access: "patient",
       },
       {
-        label: "Preparing for Your Sleep Study",
-        path: "/patients/sleep-study-prep",
-        description: "What to bring and what to expect.",
+        label: "Preparing for Your Home Sleep Study",
+        path: "/patients/home-sleep-study",
+        description: "How it works, what to bring, and how to find us.",
         access: "public",
       },
       {
@@ -78,6 +80,7 @@ const allNavSections: NavSection[] = [
   },
   {
     id: "providers",
+    archived: true,
     label: "Providers",
     basePath: "/providers",
     summary: "Refer patients and stay up to date on their care.",
@@ -110,6 +113,7 @@ const allNavSections: NavSection[] = [
   },
   {
     id: "employees",
+    archived: true,
     label: "Employees",
     basePath: "/employees",
     summary: "Internal tools and resources for the Westlake team.",
@@ -142,18 +146,21 @@ const allNavSections: NavSection[] = [
     items: [
       {
         label: "About Us",
+        archived: true,
         path: "/info/about",
         description: "Our team and our approach to sleep medicine.",
         access: "public",
       },
       {
         label: "Services",
+        archived: true,
         path: "/info/services",
         description: "In-lab and home sleep testing, and more.",
         access: "public",
       },
       {
         label: "Locations & Hours",
+        archived: true,
         path: "/info/locations",
         description: "Where to find us and when we're open.",
         access: "public",
@@ -174,8 +181,10 @@ const allNavSections: NavSection[] = [
   },
 ];
 
-/** Live navigation: every section with archived items removed. */
-export const navSections: NavSection[] = allNavSections.map((section) => ({
-  ...section,
-  items: section.items.filter((item) => !item.archived),
-}));
+/** Live navigation: archived sections dropped, archived items removed. */
+export const navSections: NavSection[] = allNavSections
+  .filter((section) => !section.archived)
+  .map((section) => ({
+    ...section,
+    items: section.items.filter((item) => !item.archived),
+  }));

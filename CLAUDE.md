@@ -15,8 +15,8 @@ Hosting. `backend/` is reserved and not implemented.
 ## Key conventions
 
 - Navigation, overview pages, and routes are all generated from
-  `frontend/src/config/navigation.ts`. To hide a page without deleting it,
-  set `archived: true`.
+  `frontend/src/config/navigation.ts`. To hide a page or a whole section
+  without deleting it, set `archived: true` on it.
 - Built pages are registered in `frontend/src/app/pages.ts`. Unregistered nav
   items render a "Coming soon" placeholder.
 - Styling uses plain CSS and the variables in `frontend/src/styles/tokens.css`.
