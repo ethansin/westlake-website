@@ -31,6 +31,8 @@ If you are scheduled for care with us, we may send text messages to the mobile n
 - **To stop receiving texts**, reply **STOP** at any time. You will receive one message confirming that you've been unsubscribed.
 - **For help**, reply **HELP** or call us at (650) 757-4813.
 
+**SMS consent is not shared with third parties or affiliates.** Your text messaging opt-in and consent are never shared with any third parties or affiliates, and your mobile phone number is never shared with third parties or affiliates for marketing or promotional purposes.
+
 For full program details, see our [Terms & Conditions](/info/policies/terms).
 
 ## How we share information
@@ -41,7 +43,7 @@ We do not sell your personal information. We share information only as needed to
 - **Your healthcare providers**, for treatment and care coordination, as permitted by law.
 - **Authorities or others when required by law**, such as in response to a valid legal process.
 
-No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. All of the categories above exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
+**SMS consent is not shared with third parties.** No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. All of the categories above exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
 
 ## How we protect information
 

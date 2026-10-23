@@ -146,6 +146,7 @@ Rules:
 | `.badge` | `pages.css` | Small status labels ("Coming soon") |
 | `.text-link` | `pages.css` | Inline / standalone text links ("← Back to Patients") |
 | `.placeholder-card` | `pages.css` | "Coming soon" content |
+| `Footer` | `components/layout/Footer.tsx` | Site-wide footer (clinic details, policy links, contact). Rendered by `AppLayout` on every page. Links every published policy automatically |
 | `LinkList` | `components/layout/LinkList.tsx` | Lists of documents to scan (e.g. `/info/policies`). See below |
 
 | Content blocks | `components/layout/content.css` | Informational pages (e.g. `/patients/home-sleep-study`). See below |
@@ -227,6 +228,9 @@ and other plain text:
   that open a new tab or another site use `target="_blank"` with
   `rel="noopener noreferrer"`.
 - Write plainly for patients: short sentences, no jargon without explanation.
+- **SMS consent on forms:** any future form that collects a phone number or
+  text-messaging consent must show its consent language with a link to the
+  Privacy Policy (and Terms) right next to it, not just in the footer.
 - **HIPAA:** no page may collect or display patient information except
   through the planned backend. See `ARCHITECTURE.md`.
 
